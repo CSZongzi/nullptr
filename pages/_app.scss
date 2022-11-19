@@ -3,6 +3,7 @@
   margin: 0;
   font-family: system-ui, sans-serif;
   user-select: none;
+  transition: color, background-color 0.5s;
 }
 
 .color-light {
@@ -13,10 +14,10 @@
 }
 
 .color-dark {
-  --text-color: hsl(220deg, 85%, 10%);
-  --text-gray-color: hsl(220deg, 85%, 10%, 60%);
-  --button-secondary-background-color: hsl(220deg, 15%, 96%);
-  --background-color: hsl(220deg, 15%, 98%);
+  --text-color: hsl(220deg, 85%, 90%);
+  --text-gray-color: hsl(220deg, 85%, 90%, 70%);
+  --button-secondary-background-color: hsl(220deg, 15%, 14%);
+  --background-color: hsl(220deg, 15%, 8%);
 }
 
 body {
