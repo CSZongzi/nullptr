@@ -20,11 +20,11 @@ function textZH() {
     <div>
       <p>
         <span className={styles.hello}>
-          <span className={styles.text}>你好！</span>
+          <span className={styles.text}>你好!</span>
           <span className={styles.emoji}>👋🏼</span>
         </span>
       </p>
-      <p>这里是 CSZongzi。</p>
+      <p>这里是 CSZongzi.</p>
     </div>
   );
 }
