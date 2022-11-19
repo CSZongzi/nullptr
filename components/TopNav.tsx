@@ -118,7 +118,7 @@ export default function TopNav() {
         <Image src="/avatar.png" alt="CSZongzi's avatar" fill draggable={false} />
       </div>
       <div className={styles.buttons}>
-        <button onClick={toggleLanguage}>
+        <button aria-label="Toggle language" onClick={toggleLanguage}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
             <path d="M18 19h6v2h-6z" fill="currentColor"></path>
             <path d="M18 15h12v2H18z" fill="currentColor"></path>
@@ -133,7 +133,7 @@ export default function TopNav() {
             ></path>
           </svg>
         </button>
-        <button onClick={colorScheme.toggleMode}>
+        <button aria-label="Toggle color scheme" onClick={colorScheme.toggleMode}>
           <ColorSchemeIcon colorScheme={currentColorScheme} />
         </button>
       </div>
