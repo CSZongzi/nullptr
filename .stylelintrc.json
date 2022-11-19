@@ -6,6 +6,7 @@
     "stylelint-config-prettier"
   ],
   "rules": {
+    "color-function-notation": "legacy",
     "selector-class-pattern": null,
     "selector-pseudo-class-no-unknown": [
       true,

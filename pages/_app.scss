@@ -4,3 +4,22 @@
   font-family: system-ui, sans-serif;
   user-select: none;
 }
+
+.color-light {
+  --text-color: hsl(220deg, 85%, 10%);
+  --text-gray-color: hsl(220deg, 85%, 10%, 60%);
+  --button-secondary-background-color: hsl(220deg, 15%, 96%);
+  --background-color: hsl(220deg, 15%, 98%);
+}
+
+.color-dark {
+  --text-color: hsl(220deg, 85%, 10%);
+  --text-gray-color: hsl(220deg, 85%, 10%, 60%);
+  --button-secondary-background-color: hsl(220deg, 15%, 96%);
+  --background-color: hsl(220deg, 15%, 98%);
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}

@@ -1,0 +1,46 @@
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
+
+  p {
+    max-width: 42rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.625;
+    letter-spacing: 0;
+  }
+
+  .hello {
+    display: flex;
+
+    .text {
+      margin-right: 0.75rem;
+      color: var(--text-gray-color);
+    }
+
+    .emoji {
+      display: block;
+      transform-origin: 75% 75%;
+      animation-name: wave-hand;
+      animation-duration: 1s;
+      animation-iteration-count: 3;
+    }
+  }
+}
+
+@keyframes wave-hand {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(30deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
