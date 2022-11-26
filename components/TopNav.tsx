@@ -1,5 +1,7 @@
 import ColorSchemeIcon from '@/icons/ColorSchemeIcon';
 import LanguageIcon from '@/icons/LanguageIcon';
+import { GetStaticPropsContext } from 'next';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -107,6 +109,8 @@ export default function TopNav() {
     }
   });
 
+  const t = useTranslations('accessibility');
+
   return (
     <section className={styles.topNav}>
       <div
@@ -116,16 +120,26 @@ export default function TopNav() {
         onMouseEnter={avatarRotate.handleAvatarMouseEnter}
         onMouseLeave={avatarRotate.handleAvatarMouseLeave}
       >
-        <Image src="/avatar.png" alt="CSZongzi's avatar" fill draggable={false} />
+        <Image src="/avatar.png" alt={t('myAvatar')} fill draggable={false} />
       </div>
       <div className={styles.buttons}>
-        <button aria-label="Toggle language" onClick={toggleLanguage}>
+        <button aria-label={t('toggleLanguage')} onClick={toggleLanguage}>
           <LanguageIcon />
         </button>
-        <button aria-label="Toggle color scheme" onClick={colorScheme.toggleMode}>
+        <button aria-label={t('toggleColorScheme')} onClick={colorScheme.toggleMode}>
           <ColorSchemeIcon colorScheme={currentColorScheme} />
         </button>
       </div>
     </section>
   );
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const locale = context.locale;
+
+  return {
+    props: {
+      messages: (await import(`@/messages/${locale}.json`)).default,
+    },
+  };
 }
