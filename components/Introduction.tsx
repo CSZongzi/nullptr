@@ -1,5 +1,5 @@
 import BlogIcon from '@/icons/BlogIcon';
-import EMailIcon from '@/icons/EMailIcon';
+import EmailIcon from '@/icons/EmailIcon';
 import GitHubIcon from '@/icons/GitHubIcon';
 import LeetCodeIcon from '@/icons/LeetCodeIcon';
 import { useRouter } from 'next/router';
@@ -42,17 +42,17 @@ export default function Introduction() {
       <div>
         {locale === 'en' ? textEN() : textZH()}
         <div className={styles.links}>
-          <a href="https://stack.nullptr.zone/">
+          <a href="https://stack.nullptr.zone/" aria-label="My blog">
             <BlogIcon />
           </a>
-          <a href="https://leetcode.com/CSZongzi/">
+          <a href="https://leetcode.com/CSZongzi/" aria-label="My LeetCode profile">
             <LeetCodeIcon />
           </a>
-          <a href="https://github.com/CSZongzi/">
+          <a href="https://github.com/CSZongzi/" aria-label="My GitHub profile">
             <GitHubIcon />
           </a>
-          <a href="mailto:cs.zongzi@gmail.com">
-            <EMailIcon />
+          <a href="mailto:cs.zongzi@gmail.com" aria-label="My email">
+            <EmailIcon />
           </a>
         </div>
       </div>
