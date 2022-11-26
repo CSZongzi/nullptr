@@ -1,9 +1,14 @@
+import BlogIcon from '@/icons/BlogIcon';
+import EMailIcon from '@/icons/EMailIcon';
+import GitHubIcon from '@/icons/GitHubIcon';
+import LeetCodeIcon from '@/icons/LeetCodeIcon';
 import { useRouter } from 'next/router';
+import React from 'react';
 import styles from './Introduction.module.scss';
 
 function textEN() {
   return (
-    <div>
+    <React.Fragment>
       <p>
         <span className={styles.hello}>
           <span className={styles.text}>Hello!</span>
@@ -11,26 +16,46 @@ function textEN() {
         </span>
       </p>
       <p>I&apos;m CSZongzi.</p>
-    </div>
+    </React.Fragment>
   );
 }
 
 function textZH() {
   return (
-    <div>
+    <React.Fragment>
       <p>
         <span className={styles.hello}>
           <span className={styles.text}>你好!</span>
           <span className={styles.emoji}>👋🏼</span>
         </span>
       </p>
-      <p>这里是 CSZongzi.</p>
-    </div>
+      <p>我是 CSZongzi.</p>
+    </React.Fragment>
   );
 }
 
 export default function Introduction() {
   const { locale } = useRouter();
 
-  return <section className={styles.introduction}>{locale === 'en' ? textEN() : textZH()}</section>;
+  return (
+    <section className={styles.introduction}>
+      <div>
+        {locale === 'en' ? textEN() : textZH()}
+        <div className={styles.links}>
+          <a href="https://stack.nullptr.zone/">
+            <BlogIcon />
+          </a>
+          <a href="https://leetcode.com/CSZongzi/">
+            <LeetCodeIcon />
+          </a>
+          <a href="https://github.com/CSZongzi/">
+            <GitHubIcon />
+          </a>
+          <a href="mailto:cs.zongzi@gmail.com">
+            <EMailIcon />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }

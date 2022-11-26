@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: center;
   height: 30rem;
+  padding: 0 1rem;
 
   p {
     max-width: 42rem;
-    padding: 0 1rem;
     font-size: 2.25rem;
     font-weight: 600;
     line-height: 1.625;
@@ -28,6 +28,28 @@
       animation-name: wave-hand;
       animation-duration: 1s;
       animation-iteration-count: 3;
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    a {
+      display: block;
+      width: 1.75rem;
+      height: 1.75rem;
+      padding: 0.5rem;
+      color: var(--text-color);
+      text-decoration: none;
+      background-color: var(--button-background-color);
+      border-radius: 50%;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
