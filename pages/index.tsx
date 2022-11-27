@@ -3,20 +3,20 @@ import TopNav from '@/components/TopNav';
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Head from 'next/head';
-import styles from './index.module.scss';
+import React from 'react';
 
 export default function Index() {
   const t = useTranslations('site');
 
   return (
-    <main className={styles.container}>
+    <React.Fragment>
       <Head>
         <title>CSZongzi</title>
         <meta name="description" content={t('description')} />
       </Head>
       <TopNav />
       <Introduction />
-    </main>
+    </React.Fragment>
   );
 }
 
