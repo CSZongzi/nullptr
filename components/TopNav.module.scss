@@ -1,41 +1,52 @@
+.borderBottom {
+  border-bottom: 1px solid var(--border-color);
+}
+
 .topNav {
   position: sticky;
   top: 0;
   left: 0;
-  box-sizing: border-box;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  width: calc(100% - 2rem);
   height: 4rem;
   padding: 0 1rem;
+  backdrop-filter: blur(0.5rem);
 
-  .avatar {
-    position: relative;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .buttons {
+  .content {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50rem;
+    max-width: 100%;
 
-    button {
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .avatar {
+      position: relative;
       width: 2.5rem;
       height: 2.5rem;
-      padding: 0.5rem;
-      color: var(--text-color);
-      cursor: pointer;
-      background-color: var(--button-background-color);
-      border: none;
-      border-radius: 0.5rem;
     }
 
-    > :not(:last-child) {
-      margin-right: 0.75rem;
+    .buttons {
+      display: flex;
+
+      button {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+        color: var(--text-color);
+        cursor: pointer;
+        background-color: var(--button-background-color);
+        border: none;
+        border-radius: 0.5rem;
+      }
+
+      > :not(:last-child) {
+        margin-right: 0.75rem;
+      }
     }
   }
 }

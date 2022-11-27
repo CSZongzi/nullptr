@@ -99,7 +99,10 @@ export default function TopNav() {
     },
   };
 
+  const topNavRef = React.createRef<HTMLDivElement>();
+
   useEffect(() => {
+    // Detect if dark mode needs to be enabled
     if (currentColorScheme === 'auto') {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         colorScheme.applyMode('dark');
@@ -107,28 +110,39 @@ export default function TopNav() {
         colorScheme.applyMode('light');
       }
     }
+
+    // Listen for scrolling events and add borders to the bar when necessary
+    window.addEventListener('scroll', () => {
+      if (document.documentElement.scrollTop > 128) {
+        topNavRef.current?.classList.add(styles.borderBottom);
+      } else {
+        topNavRef.current?.classList.remove(styles.borderBottom);
+      }
+    });
   });
 
   const t = useTranslations('accessibility');
 
   return (
-    <section className={styles.topNav}>
-      <div
-        ref={avatarRotate.ref}
-        className={styles.avatar}
-        onClick={avatarRotate.handleAvatarClick}
-        onMouseEnter={avatarRotate.handleAvatarMouseEnter}
-        onMouseLeave={avatarRotate.handleAvatarMouseLeave}
-      >
-        <Image src="/avatar.png" alt={t('myAvatar')} fill draggable={false} />
-      </div>
-      <div className={styles.buttons}>
-        <button aria-label={t('toggleLanguage')} onClick={toggleLanguage}>
-          <LanguageIcon />
-        </button>
-        <button aria-label={t('toggleColorScheme')} onClick={colorScheme.toggleMode}>
-          <ColorSchemeIcon colorScheme={currentColorScheme} />
-        </button>
+    <section ref={topNavRef} className={styles.topNav}>
+      <div className={styles.content}>
+        <div
+          ref={avatarRotate.ref}
+          className={styles.avatar}
+          onClick={avatarRotate.handleAvatarClick}
+          onMouseEnter={avatarRotate.handleAvatarMouseEnter}
+          onMouseLeave={avatarRotate.handleAvatarMouseLeave}
+        >
+          <Image src="/avatar.png" alt={t('myAvatar')} fill draggable={false} />
+        </div>
+        <div className={styles.buttons}>
+          <button aria-label={t('toggleLanguage')} onClick={toggleLanguage}>
+            <LanguageIcon />
+          </button>
+          <button aria-label={t('toggleColorScheme')} onClick={colorScheme.toggleMode}>
+            <ColorSchemeIcon colorScheme={currentColorScheme} />
+          </button>
+        </div>
       </div>
     </section>
   );
