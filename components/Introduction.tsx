@@ -4,12 +4,9 @@ import GitHubIcon from '@/icons/GitHubIcon';
 import LeetCodeIcon from '@/icons/LeetCodeIcon';
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/router';
 import styles from './Introduction.module.scss';
 
 export default function Introduction() {
-  const { locale } = useRouter();
-
   const t = useTranslations('accessibility');
   const intro = useTranslations('introduction');
 
