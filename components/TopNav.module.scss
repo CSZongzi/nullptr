@@ -31,9 +31,7 @@
 
       button {
         box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
         width: 2.5rem;
         height: 2.5rem;
         padding: 0.5rem;
@@ -42,6 +40,11 @@
         background-color: var(--button-background-color);
         border: none;
         border-radius: 0.5rem;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       > :not(:last-child) {
