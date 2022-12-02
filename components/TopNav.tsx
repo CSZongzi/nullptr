@@ -1,7 +1,6 @@
+import { t } from '@/i18n';
 import ColorSchemeIcon from '@/icons/ColorSchemeIcon';
 import LanguageIcon from '@/icons/LanguageIcon';
-import { GetStaticPropsContext } from 'next';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -121,8 +120,6 @@ export default function TopNav() {
     });
   });
 
-  const t = useTranslations('accessibility');
-
   return (
     <section ref={topNavRef} className={styles.topNav}>
       <div className={styles.content}>
@@ -133,27 +130,17 @@ export default function TopNav() {
           onMouseEnter={avatarRotate.handleAvatarMouseEnter}
           onMouseLeave={avatarRotate.handleAvatarMouseLeave}
         >
-          <Image src="/avatar.png" alt={t('myAvatar')} fill draggable={false} />
+          <Image src="/avatar.png" alt={t(router.locale, 'accessibility.myAvatar')} fill draggable={false} />
         </div>
         <div className={styles.buttons}>
-          <button aria-label={t('toggleLanguage')} onClick={toggleLanguage}>
+          <button aria-label={t(router.locale, 'accessibility.toggleLanguage')} onClick={toggleLanguage}>
             <LanguageIcon />
           </button>
-          <button aria-label={t('toggleColorScheme')} onClick={colorScheme.toggleMode}>
+          <button aria-label={t(router.locale, 'accessibility.toggleColorScheme')} onClick={colorScheme.toggleMode}>
             <ColorSchemeIcon colorScheme={currentColorScheme} />
           </button>
         </div>
       </div>
     </section>
   );
-}
-
-export async function getStaticProps(context: GetStaticPropsContext) {
-  const locale = context.locale;
-
-  return {
-    props: {
-      messages: (await import(`@/messages/${locale}.json`)).default,
-    },
-  };
 }
